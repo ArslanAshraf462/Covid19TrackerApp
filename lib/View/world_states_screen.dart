@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../View/countries_list_screen.dart';
 import '../Model/world_states_model.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -60,12 +61,12 @@ class _WorldStateScreenState extends State<WorldStateScreen> with TickerProvider
                             'Recovered': double.parse(snapshot.data!.recovered!.toString()),
                             'Deaths' : double.parse(snapshot.data!.deaths!.toString()),
                           },
-                          animationDuration: Duration(microseconds: 1200),
+                          animationDuration: const Duration(microseconds: 1200),
                       chartValuesOptions: const ChartValuesOptions(
                         showChartValuesInPercentage: true,
                       ),
                           chartType: ChartType.ring,
-                          legendOptions: LegendOptions(
+                          legendOptions: const LegendOptions(
                             legendPosition: LegendPosition.left,
                           ),
                           colorList: colorList,
@@ -89,7 +90,7 @@ class _WorldStateScreenState extends State<WorldStateScreen> with TickerProvider
                         ),
                         GestureDetector(
                           onTap: () {
-                            
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => CountriesListScreen(),));
                           },
                           child: Container(
                             height: 50,
